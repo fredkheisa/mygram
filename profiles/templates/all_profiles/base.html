@@ -13,6 +13,7 @@
 
   {% block styles %}
     {% bootstrap_css %}
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Shrikhand" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/baseprofiles.css' %}">
   {% endblock %}
 
@@ -20,13 +21,22 @@
 <body>
     {% include "all_profiles/navbar.html" %}
 
-    {% block content %} <h1 class='text-center '> MY PICTURE PROFILES</h1> {%endblock%}
+    {% block content %} 
+    <h1 class='text-center'>
+      <div class="card">
+        <div class="card-body">MY PICTURE PROFILES</div>
+      </div>
+    </h1>
+        
+    {%endblock%}
 
     {% block scripts %}
-    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      {% bootstrap_javascript %}
     {% endblock %}
+
+    
+    
 </body>
 </html>
 

@@ -21,3 +21,4 @@ class Pictures(models.Model):
     post = models.TextField()
     editor = models.ForeignKey(Editor)
     tags = models.ManyToManyField(tags)
+    phone_number = models.CharField(max_length = 10,blank =True)
