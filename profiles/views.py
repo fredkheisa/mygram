@@ -5,11 +5,9 @@ import datetime as dt
 
 # Create your views here.
 
-def welcome(request):
-    return render(request, 'welcome.html')
-
-def profiles_of_day(request):
+def profiles_today(request):
     date = dt.date.today()
+    profiles = Pictures.todays_profiles()
     return render(request, 'all_profiles/today-profiles.html', {"date": date,})
 
 def past_days_profiles(request, past_date):
