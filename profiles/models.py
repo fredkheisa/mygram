@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 
 # Create your models here.
 class Editor(models.Model):
@@ -10,6 +11,10 @@ class Editor(models.Model):
     def __str__(self):
         return self.first_name
 
+
+    def save_editor(self):
+        self.save()
+
 class tags(models.Model):
     name = models.CharField(max_length =30)
 
@@ -17,9 +22,21 @@ class tags(models.Model):
         return self.name
 
 
-class Pictures(models.Model):
+class Picture(models.Model):
     title = models.CharField(max_length =60)
     post = models.TextField()
     editor = models.ForeignKey(Editor)
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
+
+    @classmethod
+    def todays_profiles(cls):
+        today = dt.date.today()
+        profiles = cls.objects.filter(pub_date__date = today)
+        return profiles
+
+
+    @classmethod
+    def days_profiles(cls,date):
+        profiles = cls.objects.filter(pub_date__date = date)
+        return profiles
