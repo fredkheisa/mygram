@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404
 import datetime as dt
+from .models import Picture
 
 
 # Create your views here.
@@ -25,3 +26,16 @@ def past_days_profiles(request, past_date):
         return redirect(profiles_of_day)
 
     return render(request, 'all_profiles/past-profiles.html', {"date": date})
+
+def search_results(request):
+
+    if 'picture' in request.GET and request.GET["picture"]:
+        search_term = request.GET.get("picture")
+        searched_picture = Picture.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all_profiles/search.html',{"message":message,"picture": searched_pictures})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all_profiles/search.html',{"message":message})

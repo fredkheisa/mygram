@@ -40,3 +40,8 @@ class Picture(models.Model):
     def days_profiles(cls,date):
         profiles = cls.objects.filter(pub_date__date = date)
         return profiles
+
+    @classmethod
+    def search_by_title(cls,search_term):
+        profiles = cls.objects.filter(title__icontains=search_term)
+        return profiles

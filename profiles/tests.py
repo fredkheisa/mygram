@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Editor,Pictures,tags
+from .models import Editor,Picture,tags
 
 # Create your tests here.
 class EditorTestClass(TestCase):
@@ -18,7 +18,7 @@ class EditorTestClass(TestCase):
         editors = Editor.objects.all()
         self.assertTrue(len(editors) > 0)
 
-class PicturesTestClass(TestCase):
+class PictureTestClass(TestCase):
 
     def setUp(self):
         # Creating a new editor and saving it
@@ -29,19 +29,19 @@ class PicturesTestClass(TestCase):
         self.new_tag = tags(name = 'testing')
         self.new_tag.save()
 
-        self.new_pictures= Pictures(title = 'Test Pictures',post = 'This is a random test Post',editor = self.Frenky)
-        self.new_pictures.save()
+        self.new_picture= Picture(title = 'Test Picture',post = 'This is a random test Post',editor = self.Frenky)
+        self.new_picture.save()
 
-        self.new_pictures.tags.add(self.new_tag)
+        self.new_picture.tags.add(self.new_tag)
 
     def tearDown(self):
         Editor.objects.all().delete()
         tags.objects.all().delete()
-        Pictures.objects.all().delete()
+        Picture.objects.all().delete()
 
 
     def test_get_profiles_today(self):
-        today_profiles = Pictures.todays_profiles()
+        today_profiles = Picture.todays_profiles()
         self.assertTrue(len(today_profiles)>0)
 
     
