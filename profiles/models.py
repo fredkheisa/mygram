@@ -28,6 +28,7 @@ class Picture(models.Model):
     editor = models.ForeignKey(Editor)
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
+    picture_image = models.ImageField(upload_to = 'pictures/')
 
     @classmethod
     def todays_profiles(cls):

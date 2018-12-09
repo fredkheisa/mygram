@@ -8,7 +8,7 @@ from .models import Picture
 
 def profiles_today(request):
     date = dt.date.today()
-    profiles = Pictures.todays_profiles()
+    profiles = Picture.todays_profiles()
     return render(request, 'all_profiles/today-profiles.html', {"date": date,})
 
 def past_days_profiles(request, past_date):
