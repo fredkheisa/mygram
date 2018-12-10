@@ -23,8 +23,7 @@ class tags(models.Model):
 
 
 class Picture(models.Model):
-    title = models.CharField(max_length =60)
-    post = models.TextField()
+    location = models.CharField(max_length =60)
     editor = models.ForeignKey(Editor)
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
@@ -43,6 +42,6 @@ class Picture(models.Model):
         return profiles
 
     @classmethod
-    def search_by_title(cls,search_term):
-        profiles = cls.objects.filter(title__icontains=search_term)
+    def search_by_location(cls,search_term):
+        profiles = cls.objects.filter(location__icontains=search_term)
         return profiles

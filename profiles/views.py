@@ -31,7 +31,7 @@ def search_results(request):
 
     if 'picture' in request.GET and request.GET["picture"]:
         search_term = request.GET.get("picture")
-        searched_pictures = Picture.search_by_title(search_term)
+        searched_pictures = Picture.search_by_location(search_term)
         message = f"{search_term}"
 
         return render(request, 'all_profiles/search.html',{"message":message,"pictures": searched_pictures})

@@ -7,19 +7,14 @@
   <div class="row">
     <!-- displaying News articles -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <h2 class="text-center"> {{ profiles_item.title }} </h2>
-    </div>
-
-    <!--Display news Article images  -->
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <img src="{{profiles_item.picture_image.url}}" class="img-responsive" alt="Image">
+      <h2 class="text-center"> {{ profiles_item.img }} </h2>
     </div>
 
   </div>
 
   {% empty %}
   <div class="row">
-    <h2 class="text-center">NO PROFILES FOR THIS DAY</h2>
+    <h2 class="text-center"></h2>
   </div>
   {% endfor %}
 
