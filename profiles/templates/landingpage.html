@@ -34,14 +34,39 @@
 </div>
 
 <STYle>
-    .move3{
+    .move3:hover {
+
+        padding: 50px;
+        transition: transform 1s;
+        /* Animation */
+        margin: 0 auto;
+
+        transition: 0.50s;
+        -webkit-transition: 0.70s;
+        -moz-transition: 0.70s;
+        -ms-transition: 0.70s;
+        -o-transition: 0.70s;
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    .move3:hover {
+      transform: scale(1.5);
+      /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+
+    .move3 {
         border-radius: 100%;
+        transform: rotate(20deg);
     }
 
     body {
         background-image: url('../../satic/photos/11.jpg')
     }
-    .move2 {
+
+    .mve2 {
         border-radius: 50%;
         /* left: 300px; */
         box-shadow: 5px 5px 10px 10px rgb(104, 0, 0);

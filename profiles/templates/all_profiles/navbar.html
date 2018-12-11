@@ -11,27 +11,44 @@
 </head>
 
 <body>
+  <div class="opac">
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="btn btn-outline-success" href="{% url 'landing' %}">KYSERS'S GRAM</a>
+        <div class="zoom">
+          <a class="btn btn-outline-success" href="{% url 'landing' %}">KYSERS'S GRAM</a>
+          <a class="btn btn-outline-success">HOME</a>
+          <a class="btn btn-outline-success">ABOUT</a>
+        </div>
       </div>
       <!-- Adding a search form  -->
-      <div class=" h-100">
-        <form class="d-flex justify-content-center h-100" role="search" action="{% url 'search_results' %}">
-          <div class="searchbar">
-            <input type="text" class="search_input" placeholder="Search Picture" name="picture">
-            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-          </div>
-        </form>
+      <div class="">
+        <div class=" h-100">
+          <form class="d-flex justify-content-center h-100" role="search" action="{% url 'search_results' %}">
+            <div class="searchbar">
+              <input type="text" class="search_input" placeholder="Search Picture" name="picture">
+              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+            </div>
+          </form>
+        </div>
       </div>
       <!-- search form end -->
     </div>
   </nav>
-
+</div>
+</body>
   <style>
-    navbar{
-      color: #e74c3c;
+    .a {
+      padding: 50px;
+      background-color: rgb(255, 255, 255);
+      transition: transform 1s;
+      /* Animation */
+      margin: 0 auto;
+    }
+
+    .zoom:hover {
+      transform: scale(1.5);
+      /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     }
 
     .navbar-inverse {
@@ -80,7 +97,5 @@
       color: white;
     }
   </style>
-
-</body>
 
 </html>
