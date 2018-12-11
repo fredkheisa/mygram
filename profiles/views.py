@@ -6,6 +6,11 @@ from .models import Picture
 
 # Create your views here.
 
+
+def landing(request):
+    images = Picture.objects.all()
+    return render(request, 'landingpage.html',{"images":images})
+
 def profiles_today(request):
     date = dt.date.today()
     profiles = Picture.todays_profiles()

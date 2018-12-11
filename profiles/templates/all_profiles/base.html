@@ -1,47 +1,57 @@
-{% load bootstrap3 %}
-{% load static%}
+{% load bootstrap3 %} {% load static%}
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
 
-  {% if title %}
+<head>
+  <meta charset="utf-8"> {% if title %}
   <title>Moringa Tribune - {{title}}</title>
   {% else %}
-    <title> Moringa Tribune </title>
-  {% endif %}
-
-  {% block styles %}
-    {% bootstrap_css %}
-    <link href="https://fonts.googleapis.com/css?family=Bungee|Shrikhand" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/baseprofiles.css' %}">
-  {% endblock %}
+  <title> Moringa Tribune </title>
+  {% endif %} {% block styles %} {% bootstrap_css %}
+  <link href="https://fonts.googleapis.com/css?family=Bungee|Shrikhand" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/baseprofiles.css' %}"> {% endblock %}
 
 </head>
+
 <body>
-    {% include "all_profiles/navbar.html" %}
+  {% include "all_profiles/navbar.html" %} {% block content %}
+  <div>
+  <h1 class='text-center'>
+    <div class="card" style="width: 38rem;">
+      <div class="card-body ">MY PICTURE PROFILES</div>
+    </div>
+  </h1>
+  <br><br>
 
-    {% block content %} 
-    <h1 class='text-center'>
-      <div class="card">
-        <div class="card-body">MY PICTURE PROFILES</div>
-      </div>
-    </h1>
 
-    <div class="col-sm-6 col-md-3">
-        <h1></h1>
-        <img src="{{picture.picture_image.url}}" alt="">
-      </div>
-        
-    {%endblock%}
 
-    {% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     {% bootstrap_javascript %}
-    {% endblock %}
 
-    
-    
+  {%endblock%}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> {% bootstrap_javascript %} {%
+  endblock %}
+
+
+
 </body>
-</html>
+<style>
+  h1 {
+    font-family: 'Faster One', cursive;
+  }
 
+  .move2 {
+
+    box-shadow: 5px 5px 10px 10px rgb(255, 255, 255);
+  }
+
+  body {
+    background-image: url('../../static/photos/11.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+
+</style>
+
+</html>

@@ -1,25 +1,50 @@
 {%extends 'all_profiles/base.html'%} {% block content %}
-<div class="container">
 
-  <div class="row">
-    {% if pictures%}
-    <h2>Found {{ pictures|length }} of searched term {{message}}</h2>
+<body>
+  <div class="container">
+    <div class="row">
+      {% if pictures%}
+      <h2>Found {{ pictures|length }} of searched term {{message}}</h2>
 
-    {% else %}
-    <h2> Found 0 pictures for the search term {{message}}</h2>
-    {% endif %}
+      {% else %}
+      <h2> Found 0 pictures for the search term {{message}}</h2>
+      {% endif %}
 
-  </div>
-
-  <div class="row">
-    {% if pictures %} 
-    {% for picture in pictures %}
-    <div class="col-sm-6 col-md-3">
-      <h1></h1>
-      <img src="{{picture.picture_image.url}}" alt="">
     </div>
-    {% endfor %} 
-    {% endif %}
+
+    <div class="">
+      {% if pictures %} {% for picture in pictures %}
+      <div class="col-sm-6 col-md-3">
+        <h1>{{picture.location}}</h1>
+
+        <div class="card move2" style="width: 38rem;">
+          <img class="card-img-top" src="{{picture.picture_image.url}}" alt="Card image cap">
+          <br><br>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">About picture</a>
+          </div>
+        </div>
+        <img alt="">
+      </div>
+      {% endfor %} {% endif %}
+    </div>
   </div>
-</div>
+
+</body>
+<style>
+  .move2 {
+    /* left: 300px; */
+    box-shadow: 5px 5px 10px 10px rgb(175, 97, 97);
+  }
+
+  body {
+    background-image: url('../static/photos/1.JPG');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+</style>
 {% endblock %}

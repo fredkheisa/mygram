@@ -1,0 +1,51 @@
+{%extends 'all_profiles/base.html'%} {% block content %} {{block.super}}
+
+<head>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+</head>>
+<div class="container">
+
+    {% for image in images %}
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class=" move2 grid-item" style="width: 38rem;">
+                <img class="card-img-top move3" src="{{image.picture_image.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary">About picture</a>
+                </div>
+            </div>
+        </div>
+        <div class="trtr">
+            <h2 class="text-center"> {{ image.name }} </h2>
+        </div>
+
+    </div>
+
+    {% empty %}
+    <div class="row">
+        <h2 class="text-center"></h2>
+    </div>
+    {% endfor %}
+
+</div>
+
+<STYle>
+    .move3{
+        border-radius: 100%;
+    }
+
+    body {
+        background-image: url('../../satic/photos/11.jpg')
+    }
+    .move2 {
+        border-radius: 50%;
+        /* left: 300px; */
+        box-shadow: 5px 5px 10px 10px rgb(104, 0, 0);
+    }
+</STYle>
+
+{% endblock %}
