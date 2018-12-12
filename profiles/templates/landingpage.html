@@ -1,6 +1,4 @@
-{%extends 'all_profiles/base.html'%} 
-{% block content %} 
-{{block.super}}
+{%extends 'all_profiles/base.html'%} {% block content %} {{block.super}}
 
 <head>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
@@ -37,15 +35,38 @@
 </div>
 
 <style>
+    .move:hover {
+        
 
-    .move{
-        border-radius: 50%;
+        padding: 50px;
+        transition: transform 1s;
+        /* Animation */
+        margin: 0 auto;
+
+        transition: 0.50s;
+        -webkit-transition: 0.70s;
+        -moz-transition: 0.70s;
+        -ms-transition: 0.70s;
+        -o-transition: 0.70s;
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 
+    .move:hover {
+        transform: scale(1.5);
+        /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+
+    .move {
+        border-radius: 100%;
+        transform: rotate(20deg);
+    }
+
+    .move {
+        border-radius: 50%;
+    }
 </style>
-{% endblock %}
-
-{% block scripts %}
-
-{% endblock %}
-
+{% endblock %} {% block scripts %} {% endblock %}

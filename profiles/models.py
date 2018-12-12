@@ -24,12 +24,51 @@ class tags(models.Model):
 class Location(models.Model):
     location = models.CharField(max_length = 60)
 
+
+    def save_location(self):
+        """
+        This is the function that we will use to save the instance of this class
+        """
+        self.save()
+
+    def delete(self):
+        """
+        This is the method to delete the instance
+        """
+        self.delete()
+
+    def update(self,field,val):
+        """
+        This is the method to update the instance
+        """
+        Location.objects.get(id = self.id).update(field = val)
+
+
     def __str__(self):
         return self.location
 
 
 class Category(models.Model):
     category = models.CharField(max_length = 60)
+
+    def save_category(self):
+        """
+        This is the function that we will use to save the instance of this class
+        """
+        self.save()
+
+    def delete(self):
+        """
+        This is the method to delete the instance
+        """
+        Category.objects.get(id = self.id).delete()
+
+    def update(self,field,val):
+        """
+        This is the method to update the instance
+        """
+        Category.objects.get(id = self.id).update(field = val)
+
 
     def __str__(self):
         return self.category
@@ -41,6 +80,24 @@ class Picture(models.Model):
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
     picture_image = models.ImageField(upload_to = 'pictures/')
+
+    def save_picture(self):
+        """
+        This is the function that we will use to save the instance of this class
+        """
+        self.save()
+
+    def delete_picture(self):
+        """
+        This is the function that we will use to delete the instance of this class
+        """
+        Image.objects.get(id = self.id).delete()
+
+    def update_picture(self,val):
+        """
+        This is the method to update the instance
+        """
+        Image.objects.filter(id = self.id).update(name = val)
 
     @classmethod
     def todays_profiles(cls):
