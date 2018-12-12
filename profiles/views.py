@@ -44,3 +44,11 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'all_profiles/search.html',{"message":message})
+
+
+def picture(request,picture_id):
+    try:
+        picture = Picture.objects.get(id = picture_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"all-profiles/picture.html", {"picture":picture})
