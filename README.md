@@ -88,7 +88,7 @@ $ sudo apt-get install postgresql postgresql-contrib libpq-dev
 Username: FredKheisa
 Password:musicstrings6
 
-### Known Bugs :x:
+### Known Bugs 
 Currently, there are a few bugs we're working to resolving.
 
 ### Live link
